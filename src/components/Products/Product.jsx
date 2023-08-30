@@ -1,8 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import CustomButton from '../CustomButton/CustomButton';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cart/cartSlice';
 
 /* eslint-disable react/prop-types */
 const Product = ({ product }) => {
-  function handleBuyClick() {}
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleBuyClick() {
+    dispatch(addToCart(product));
+    navigate(`/cart`);
+  }
+
   return (
     <section className="grid grid-cols-[1.5fr_1fr] justify-center">
       <div

@@ -14,25 +14,16 @@ const CartPage = () => {
   const totalProductsItemsInCart = useSelector(selectorProductsTotalitems);
   const navigate = useNavigate();
 
-  // Lógica para mostrar uma mensagem para quando não tiver nenhum item no carrinho
-  // useEffect(() => {
-  //   if (!totalProductsItemsInCart) navigate('/');
-  // }, [totalProductsItemsInCart, navigate]);
-
-  // if (totalProductsItemsInCart === 0) {
-  //   setDisable(true);
+  // function handleBuyPage() {
+  //   navigate('/buy');
   // }
-
-  function handleBuyPage() {
-    navigate('/buy');
-  }
 
   function handleHome() {
     navigate('/');
   }
 
   return (
-    <main className="w-4/5 mx-auto pt-16 grid grid-cols-[2.3fr_1fr] gap-10 z-50">
+    <main className="w-4/5 mx-auto pt-16 grid grid-cols-[2.3fr_1fr] gap-10">
       <section>
         {totalProductsItemsInCart ? (
           products.map((product) => (
@@ -53,15 +44,15 @@ const CartPage = () => {
           </p>
           <p className="font-bold text-base">
             Preço total:
-            <span className="text-xl absolute right-8">
-              R$ {totalProductsPrice}
+            <span className="text-lg absolute right-8">
+              R$: {totalProductsPrice}
             </span>
           </p>
         </div>
         <div className="bg-slate-100 rounded p-5 flex justify-center">
           {totalProductsItemsInCart ? (
             <CustomButton
-              onClick={handleBuyPage}
+              // onClick={handleBuyPage}
               className={`text-white text-center font-semibold tracking-wider hover:opacity-75 active:bg-blue-800 bg-blue-500 rounded-xl py-5 w-full`}
             >
               Finalizar Compra

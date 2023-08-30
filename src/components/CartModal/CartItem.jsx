@@ -4,10 +4,12 @@ import {
   increaseProductItem,
   removeProductItem,
 } from '../../redux/cart/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 /* eslint-disable react/prop-types */
 const CartItem = ({ product }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleIncreaseItemClick() {
     dispatch(increaseProductItem(product));
@@ -21,46 +23,61 @@ const CartItem = ({ product }) => {
     dispatch(removeProductItem(product));
   }
 
+  function handleClickProduct() {
+    navigate(`/produto/${product.id}`);
+  }
+
   return (
-    <li
-      key={product.id}
-      className="list-none mb-3 border-b-2 pb-3 relative z-50"
-    >
-      <button
-        onClick={handleRemoveItemClick}
-        className="font-bold text-xs p-1 bg-red-500 text-white rounded-md tracking-normal cursor-pointer absolute right-4 shadow-lg z-50 active:bg-opacity-75"
-      >
-        Remover
-      </button>
-      <div className="text-black grid grid-cols-[96px_1fr] items-center gap-3">
+    <li key={product.id} className="list-none mb-3 border-b-2 pb-3 relative">
+      <div className="text-black grid grid-cols-[96px_1fr] gap-3">
         <div
+          onClick={handleClickProduct}
           style={{ backgroundImage: `url(${product.imageUrl})` }}
-          className={`w-24 h-24 overflow-hidden rounded-xl bg-no-repeat bg-cover bg-center`}
+          className={`w-24 h-24 bg-no-repeat bg-cover bg-center cursor-pointer`}
         />
-        {/* <img src={product.imageUrl} alt="" className="w-24 h-24 rounded-xl" /> */}
-        <div className="relative w-full">
-          <h2 className="font-bold">{product.name}</h2>
-          <p className="text-blue-800 font-semibold">R$ {product.price}</p>
-          <div className="mt-5 flex gap-2">
-            <div
-              onClick={handleDecreaseItemClick}
-              className="font-bold cursor-pointer select-none"
+        <div className="grid grid-cols-2">
+          <div className="flex flex-col justify-between">
+            <h2
+              onClick={handleClickProduct}
+              className="font-bold text-lg cursor-pointer"
             >
-              -
-            </div>
-            <div className="bg-white px-2 border border-black rounded shadow">
-              {product.quantity}
-            </div>
-            <div
-              onClick={handleIncreaseItemClick}
-              className="font-bold cursor-pointer select-none"
+              {product.name}
+            </h2>
+            <p
+              onClick={handleClickProduct}
+              className="text-blue-800 font-semibold cursor-pointer"
             >
-              +
-            </div>
+              R$: {product.price}
+            </p>
           </div>
-          <p className="absolute bottom-0 right-5">
-            R$ {product.price * product.quantity}
-          </p>
+          <div className="justify-self-end">
+            <button
+              onClick={handleRemoveItemClick}
+              className="font-bold text-xs p-1 bg-red-500 text-white rounded-md tracking-normal mb-5 cursor-pointer shadow-lg active:bg-opacity-75"
+            >
+              Remover
+            </button>
+            <div className="flex gap-2">
+              <div
+                onClick={handleDecreaseItemClick}
+                className="font-bold cursor-pointer select-none"
+              >
+                -
+              </div>
+              <div className="bg-white px-2 border border-black rounded shadow">
+                {product.quantity}
+              </div>
+              <div
+                onClick={handleIncreaseItemClick}
+                className="font-bold cursor-pointer select-none"
+              >
+                +
+              </div>
+            </div>
+            <p className="font-semibold text-sm">
+              R$: {product.price * product.quantity}
+            </p>
+          </div>
         </div>
       </div>
     </li>

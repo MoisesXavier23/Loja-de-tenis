@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { addToCart } from '../../redux/cart/cartSlice';
 
 /* eslint-disable react/prop-types */
@@ -7,28 +7,33 @@ const ProductsItems = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleBuyClick() {}
+  function handleBuyClick() {
+    dispatch(addToCart(product));
+    navigate(`/cart`);
+  }
 
   const handleAddToCartClick = () => {
     dispatch(addToCart(product));
   };
 
-  function handleClickProduct() {
-    navigate(`/produto/${product.id}`);
-  }
+  // function handleClickProduct() {
+  //   navigate(`/produto/${product.id}`);
+  // }
 
   return (
-    <div className="bg-zinc-50 max-w-max p-5 rounded-md drop-shadow-md shadow-xl">
-      <div className="cursor-pointer" onClick={handleClickProduct}>
-        <div
-          style={{ backgroundImage: `url(${product.imageUrl})` }}
-          className={`w-52 h-56 overflow-hidden rounded-xl bg-no-repeat bg-cover bg-center`}
-        ></div>
-        <div className="font-mono flex justify-between items-center px-2 py-2">
-          <h2 className="font-bold text-xl text-slate-600">{product.name}</h2>
-          <p className="font-semibold text-sky-800">R$ {product.price}</p>
+    <div className="bg-zinc-50 max-w-max p-5 drop-shadow-md shadow-xl">
+      <Link to={'/produto/' + product.id}>
+        <div className="cursor-pointer">
+          <div
+            style={{ backgroundImage: `url(${product.imageUrl})` }}
+            className={`w-52 h-56 bg-no-repeat bg-cover bg-center`}
+          ></div>
+          <div className="font-mono flex justify-between items-center px-2 py-2">
+            <h2 className="font-bold text-xl text-slate-600">{product.name}</h2>
+            <p className="font-semibold text-sky-800">R$ {product.price}</p>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="flex flex-col">
         <button
           className="text-cyan-500 text-base font-semibold tracking-wide bg-transparent hover:bg-cyan-50 active:bg-cyan-700 active:text-white active:transition-none

@@ -1,30 +1,16 @@
 import { useSelector } from 'react-redux';
 import { selectorCartProducts } from '../../redux/cart/cartSlice';
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CartModal from '../CartModal/CartModal';
 
 const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const local = location.pathname;
-
   const { products } = useSelector(selectorCartProducts);
-
   const total = products.reduce((sum, item) => sum + item.quantity, 0);
-
   const [cartIsVisible, setCartIsVisible] = useState(false);
 
   function handleClickOpenCart() {
     setCartIsVisible(!cartIsVisible);
-  }
-
-  function handleClickLogin() {
-    local === '/' ? navigate('account/login') : navigate('login');
-  }
-  function handleClickRegister() {
-    local === '/' ? navigate('account/register') : navigate('register');
   }
 
   return (
@@ -35,23 +21,23 @@ const Header = () => {
       <nav>
         <ul className="flex gap-10">
           <ul className="flex">
-            <li
-              onClick={handleClickLogin}
+            <Link
+              to={'/account/login'}
               className={
                 'text-lg font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none '
               }
             >
               Entrar
-            </li>
+            </Link>
             <span className="font-bold text-white">|</span>
-            <li
-              onClick={handleClickRegister}
+            <Link
+              to={'/account/register'}
               className={
                 'text-lg font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none'
               }
             >
               Criar Conta
-            </li>
+            </Link>
           </ul>
           <li
             onClick={handleClickOpenCart}
