@@ -1,10 +1,12 @@
 import CustomButton from '../CustomButton/CustomButton';
 import { Input } from '../Form/Input';
 import { Link } from 'react-router-dom';
+import Head from '../../Head';
 
 const Login = () => {
   return (
     <section className="bg-gray-200 h-full p-5 flex flex-col gap-14">
+      <Head title={'Entrar'} />
       <h1 className="text-3xl text-center font-bold">Entrar</h1>
       <div className="flex justify-center">
         <form

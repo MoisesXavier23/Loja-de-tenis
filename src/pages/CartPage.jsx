@@ -7,6 +7,7 @@ import {
 } from '../redux/cart/cartSlice';
 import CustomButton from '../components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+import Head from '../Head';
 
 const CartPage = () => {
   const { products } = useSelector(selectorCartProducts);
@@ -14,16 +15,13 @@ const CartPage = () => {
   const totalProductsItemsInCart = useSelector(selectorProductsTotalitems);
   const navigate = useNavigate();
 
-  // function handleBuyPage() {
-  //   navigate('/buy');
-  // }
-
   function handleHome() {
     navigate('/');
   }
 
   return (
     <main className="w-4/5 mx-auto pt-16 grid grid-cols-[2.3fr_1fr] gap-10">
+      <Head title={'Carrinho'} />
       <section>
         {totalProductsItemsInCart ? (
           products.map((product) => (

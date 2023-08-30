@@ -1,10 +1,12 @@
 import { Input } from '../Form/Input';
 import { Link } from 'react-router-dom';
 import CustomButton from '../CustomButton/CustomButton';
+import Head from '../../Head';
 
 const Register = () => {
   return (
     <section className="bg-gray-200 h-full p-5 flex flex-col gap-5">
+      <Head title={'Cadastrar'} />
       <h1 className="text-3xl text-center font-bold">Criar a sua conta</h1>
       <div className="flex justify-center">
         <form

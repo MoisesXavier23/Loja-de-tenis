@@ -1,9 +1,11 @@
 import productsData from '../components/Products/data';
 import ProductsCard from '../components/Products/ProductsCard';
+import Head from '../Head';
 
 const Home = () => {
   return (
-    <main className="w-4/5 mx-auto py-16 flex flex-wrap justify-center gap-4">
+    <main className="mx-auto py-16 px-5 flex flex-wrap justify-center gap-4">
+      <Head title={''} />
       {productsData.map((product) => (
         <ProductsCard product={product} key={product.id} />
       ))}

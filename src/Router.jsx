@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './routes/Home';
-import CartPage from './routes/CartPage';
+import Home from './pages/Home';
+import CartPage from './pages/CartPage';
 import Header from './components/Header/Header';
-import ErrorPage from './routes/ErrorPage';
-import ProductPage from './routes/ProductPage';
-import AccountPage from './routes/AccountPage';
+import ErrorPage from './pages/ErrorPage';
+import ProductPage from './pages/ProductPage';
+import AccountPage from './pages/AccountPage';
 import Login from './components/Account/Login';
 import Register from './components/Account/Register';
 
