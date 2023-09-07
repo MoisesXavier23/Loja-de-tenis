@@ -7,22 +7,36 @@ import {
 } from '../../redux/cart/cartSlice';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
+import { useEffect, useRef } from 'react';
 
-const CartModal = ({ isVisible }) => {
+const CartModal = ({ isVisible, setCartIsVisible }) => {
   const { products } = useSelector(selectorCartProducts);
-
   const totalProductsPrice = useSelector(selectorProductsTotalPrice);
-
   const totalProductsItemsInCart = useSelector(selectorProductsTotalitems);
+
+  const modalRef = useRef();
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+  }, []);
+
+  const handleClickOutside = (e) => {
+    if (!modalRef.current.contains(e.target)) {
+      setCartIsVisible(isVisible);
+    }
+  };
 
   return (
     <div
+      ref={modalRef}
       className={`bg-white shadow-2xl rounded-xl rounded-tr-none absolute top-10 right-20 z-40 ${
         isVisible ? 'opacity-100' : 'opacity-0 hidden'
       }`}
     >
-      <div className="w-96 h-80 max-h-80 p-3 overflow-auto">
+      <div className="p-3 pb-1 border-b border-black">
         <h2 className="text-black font-bold">Seu Carrinho</h2>
+      </div>
+      <div className="w-96 h-80 max-h-80 p-3 overflow-auto">
         <nav>
           {products.map((product) => (
             <CartItem product={product} key={product.id} />

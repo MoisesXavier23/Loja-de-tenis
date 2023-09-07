@@ -51,7 +51,10 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <CartModal isVisible={cartIsVisible} setIsVisible={setCartIsVisible} />
+      <CartModal
+        isVisible={cartIsVisible}
+        setCartIsVisible={setCartIsVisible}
+      />
     </header>
   );
 };
