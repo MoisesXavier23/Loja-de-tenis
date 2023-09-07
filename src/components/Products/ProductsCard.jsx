@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { addToCart } from '../../redux/cart/cartSlice';
+import { addToCart, increaseProductItem } from '../../redux/cart/cartSlice';
 
 /* eslint-disable react/prop-types */
 const ProductsItems = ({ product }) => {
@@ -13,7 +13,7 @@ const ProductsItems = ({ product }) => {
   }
 
   const handleAddToCartClick = () => {
-    dispatch(addToCart(product));
+    dispatch(increaseProductItem(product));
   };
 
   // function handleClickProduct() {

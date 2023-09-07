@@ -24,9 +24,7 @@ export const cartSlice = createSlice({
       );
       if (productIsAlreadyInCart) {
         state.products = state.products.map((product) =>
-          product.id === action.payload.id
-            ? { ...product, quantity: product.quantity + 1 }
-            : product
+          product.id === action.payload.id ? { ...product } : product
         );
         state.products.map((product) =>
           localStorage.setItem('Cart: ' + product.id, JSON.stringify(product))
@@ -39,11 +37,21 @@ export const cartSlice = createSlice({
       );
     },
     increaseProductItem: (state, action) => {
-      state.products = state.products.map((product) =>
-        product.id === action.payload.id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
+      const productIsAlreadyInCart = state.products.some(
+        (product) => product.id === action.payload.id
       );
+      if (productIsAlreadyInCart) {
+        state.products = state.products.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        );
+        state.products.map((product) =>
+          localStorage.setItem('Cart: ' + product.id, JSON.stringify(product))
+        );
+        return;
+      }
+      state.products = [...state.products, { ...action.payload, quantity: 1 }];
       state.products.map((product) =>
         localStorage.setItem('Cart: ' + product.id, JSON.stringify(product))
       );
