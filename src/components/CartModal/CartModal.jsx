@@ -43,7 +43,7 @@ const CartModal = ({ isVisible, setCartIsVisible }) => {
           ))}
         </nav>
       </div>
-      <div className="text-black p-3 bg-white rounded-bl-xl rounded-br-xl border-gray-500 border-t-[1px] flex flex-col relative">
+      <div className="text-black p-3 bg-white rounded-bl-xl rounded-br-xl border-gray-500 border-t-[1px] flex flex-col relative bottom-0">
         <h2 className="font-bold text-black">
           Preço Total:
           <span className="text-blue-950 absolute right-4">

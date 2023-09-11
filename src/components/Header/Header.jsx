@@ -14,12 +14,12 @@ const Header = () => {
   }
 
   return (
-    <header className="flex justify-between px-20 py-4 bg-slate-600 text-white">
+    <header className="flex justify-between px-5 py-4 md:px-20 sm:px-10 bg-slate-600 text-white">
       <Link to="/">
-        <h1 className="text-2xl font-bold tracking-wide">Tênis</h1>
+        <h1 className="text-2xl m font-bold tracking-wide">Tênis</h1>
       </Link>
       <nav>
-        <ul className="flex gap-10">
+        <ul className="flex gap-1 sm:gap-10">
           <ul className="flex">
             <Link
               to={'/account/login'}
