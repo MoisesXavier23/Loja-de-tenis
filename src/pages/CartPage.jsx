@@ -20,7 +20,7 @@ const CartPage = () => {
   }
 
   return (
-    <main className="w-4/5 mx-auto pt-16 grid grid-cols-[2.3fr_1fr] gap-10">
+    <main className="px-3 md:px-0 md:w-4/5 mx-auto pt-5 md:pt-16 md:grid grid-cols-[2.3fr_1fr] gap-10">
       <Head title={'Carrinho'} />
       <section>
         {totalProductsItemsInCart ? (
@@ -33,10 +33,10 @@ const CartPage = () => {
           </h2>
         )}
       </section>
-      <section className="h-max flex flex-col gap-5 relative">
-        <div className="bg-slate-100 rounded p-5 flex flex-col items-start">
+      <section className="h-max flex flex-col md:gap-5 bg-slate-300 border-t border-black md:border-none md:bg-transparent fixed bottom-[-1px] left-0 w-full md:relative">
+        <div className="md:bg-slate-300 rounded p-2 md:p-5 flex flex-col items-start">
           <h2 className="font-bold text-2xl text-black">Total</h2>
-          <p className="font-semibold text-black my-5">
+          <p className="font-semibold text-black md:my-5">
             Quantidade de itens:
             <span className="absolute right-8">{totalProductsItemsInCart}</span>
           </p>
@@ -47,18 +47,18 @@ const CartPage = () => {
             </span>
           </p>
         </div>
-        <div className="bg-slate-100 rounded p-5 flex justify-center">
+        <div className="md:bg-slate-300 md:rounded p-1 md:p-5 flex justify-center">
           {totalProductsItemsInCart ? (
             <CustomButton
               // onClick={handleBuyPage}
-              className={`text-white text-center font-semibold tracking-wider hover:opacity-75 active:bg-blue-800 bg-blue-500 rounded-xl py-5 w-full`}
+              className={`text-white text-center font-semibold tracking-wider hover:opacity-75 active:bg-blue-800 bg-blue-500 rounded-xl py-3 md:py-5 w-full`}
             >
               Finalizar Compra
             </CustomButton>
           ) : (
             <CustomButton
               onClick={handleHome}
-              className={`text-white text-center font-semibold tracking-wider hover:opacity-75 active:bg-blue-800 bg-blue-500 rounded-xl py-5 w-full`}
+              className={`text-white text-center font-semibold tracking-wider hover:opacity-75 active:bg-blue-800 bg-blue-500 rounded-xl py-3 md:py-5 w-full`}
             >
               Voltar para o inicio
             </CustomButton>
