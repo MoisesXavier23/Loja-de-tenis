@@ -35,11 +35,11 @@ const CartItem = ({ product }) => {
           style={{ backgroundImage: `url(${product.imageUrl})` }}
           className={`w-24 h-24 bg-no-repeat bg-cover bg-center cursor-pointer`}
         />
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-[1fr_0.5fr]">
           <div className="flex flex-col justify-between">
             <h2
               onClick={handleClickProduct}
-              className="font-bold text-lg cursor-pointer"
+              className="font-bold text-sm md:text-lg cursor-pointer"
             >
               {product.name}
             </h2>
