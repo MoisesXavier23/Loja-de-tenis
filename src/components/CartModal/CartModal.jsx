@@ -29,8 +29,8 @@ const CartModal = ({ isVisible, setCartIsVisible }) => {
   return (
     <div
       ref={modalRef}
-      className={`bg-white shadow-2xl rounded-xl rounded-tr-none absolute top-10 right-20 z-40 ${
-        isVisible ? 'opacity-100' : 'opacity-0 hidden'
+      className={`bg-white shadow-2xl rounded-xl rounded-tr-none absolute top-7 right-5 md:top-8 z-40 ${
+        isVisible ? 'opacity-100' : 'opacity-0 hidden invisible'
       }`}
     >
       <div className="p-3 pb-1 border-b border-black">
