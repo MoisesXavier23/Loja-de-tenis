@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Head title={''} />
-      <main className="mx-auto py-16 px-5 grid gap-5">
+      <main className="mx-auto py-16 px-5 flex flex-wrap justify-center gap-4">
         <Order sequence={sequence} setSequence={setSequence} />
         <section className="flex flex-wrap justify-center gap-4">
           {sortedarray
