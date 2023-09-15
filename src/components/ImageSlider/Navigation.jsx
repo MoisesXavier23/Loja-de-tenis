@@ -17,13 +17,13 @@ const Navigation = ({ currentIndex, setIndex, productsData }) => {
     <>
       <div
         onClick={goToPrevious}
-        className="text-[45px] text-white hover:text-blue-500 absolute top-1/2 left-[32px] translate-x-0 translate-y-[-50%] z-10 cursor-pointer select-none"
+        className="text-[45px] text-white hover:opacity-75 absolute top-1/2 translate-x-0 translate-y-[-50%] z-10 cursor-pointer select-none"
       >
         &lt;
       </div>
       <div
         onClick={goToNext}
-        className="text-[45px] text-white hover:text-blue-500 absolute top-1/2 right-[32px] translate-x-0 translate-y-[-50%] z-10 cursor-pointer select-none"
+        className="text-[45px] text-white hover:opacity-75 absolute top-1/2 right-0 translate-x-0 translate-y-[-50%] z-10 cursor-pointer select-none"
       >
         &gt;
       </div>

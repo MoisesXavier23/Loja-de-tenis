@@ -5,6 +5,7 @@ import {
   removeProductItem,
 } from '../../redux/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 /* eslint-disable react/prop-types */
 const CartItem = ({ product }) => {
@@ -28,55 +29,68 @@ const CartItem = ({ product }) => {
   }
 
   return (
-    <li key={product.id} className="list-none mb-3 border-b-2 pb-3 relative">
-      <div className="text-black grid grid-cols-[96px_1fr] gap-3">
+    <li
+      key={product.id}
+      className="border border-color-[#646464] rounded-[7px] bg-white shadow-lg p-[10px] list-none relative"
+    >
+      <div className="grid grid-cols-[109px_1fr] gap-[10px]">
         <div
           onClick={handleClickProduct}
           style={{ backgroundImage: `url(${product.imageUrl})` }}
-          className={`w-24 h-24 bg-no-repeat bg-cover bg-center cursor-pointer`}
+          className={`w-full h-[109px] bg-no-repeat bg-cover bg-center cursor-pointer`}
         />
-        <div className="grid grid-cols-[1fr_0.5fr]">
-          <div className="flex flex-col justify-between">
+        <div className="grid grid-cols-[3fr_0.2fr]">
+          <div className="flex flex-col justify-between relative">
             <h2
               onClick={handleClickProduct}
-              className="font-bold text-sm md:text-lg cursor-pointer"
+              className="font-bold text-[14px] sm:text-[16px] md:text-lg xl:text-[20px] leading-4 cursor-pointer"
             >
               {product.name}
             </h2>
+            <ul className="hidden invisible sm:block sm:visible text-[12px] list-none leading-4">
+              <li className="">Ref: {product.id}</li>
+              <li className="">Vendido e entregue por: Zaphira</li>
+              <li className="">Cor: {product.color.join(', ')}</li>
+            </ul>
             <p
               onClick={handleClickProduct}
-              className="text-blue-800 font-semibold cursor-pointer"
+              className="text-[10px] sm:text-[12px] xl:text-[14px] font-semibold cursor-pointer"
             >
-              R$: {product.price}
+              R$ {product.price} por unidade
             </p>
           </div>
-          <div className="justify-self-end">
+          <div className="grid grid-rows-[.2fr_1fr] justify-self-end">
             <button
               onClick={handleRemoveItemClick}
-              className="font-bold text-xs p-1 bg-red-500 text-white rounded-md tracking-normal mb-5 cursor-pointer shadow-lg active:bg-opacity-75"
+              className="text-xs p-1 bg-red-500 text-white rounded-md cursor-pointer shadow-lg active:bg-opacity-75 justify-self-end"
             >
-              Remover
+              <BsFillTrashFill />
             </button>
-            <div className="flex gap-2">
-              <div
-                onClick={handleDecreaseItemClick}
-                className="font-bold cursor-pointer select-none"
-              >
-                -
-              </div>
-              <div className="bg-white px-2 border border-black rounded shadow">
-                {product.quantity}
-              </div>
-              <div
-                onClick={handleIncreaseItemClick}
-                className="font-bold cursor-pointer select-none"
-              >
-                +
+            <div className="self-end">
+              <p className="font-bold text-[12px] sm:text-[14px] md:text-[12px] xl:text-[14px] text-end whitespace-nowrap">
+                R$: {product.price * product.quantity}
+              </p>
+              <div className="flex items-center gap-2 justify-self-end">
+                {/* <p className="hidden invisible sm:block sm:visible sm:text-[12px] text-[#646464]">
+                  Quantidade:
+                </p> */}
+                <div
+                  onClick={handleDecreaseItemClick}
+                  className="text-[12px] font-bold cursor-pointer select-none"
+                >
+                  -
+                </div>
+                <div className="bg-white px-2 py-0  border border-black rounded shadow">
+                  {product.quantity}
+                </div>
+                <div
+                  onClick={handleIncreaseItemClick}
+                  className="text-[12px] font-bold cursor-pointer select-none"
+                >
+                  +
+                </div>
               </div>
             </div>
-            <p className="font-semibold text-sm">
-              R$: {product.price * product.quantity}
-            </p>
           </div>
         </div>
       </div>

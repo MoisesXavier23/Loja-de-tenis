@@ -13,12 +13,12 @@ const Home = () => {
   return (
     <>
       <Head title={''} />
-      <div className="w-full h-80">
-        <ImageSlider productsData={productsData} />
-      </div>
-      <main className="mx-auto py-16 px-5 flex flex-wrap justify-center gap-4">
+      <main className="py-[40px] xl:py-[78px] flex flex-wrap justify-center gap-7">
+        <section className="w-full h-[180px] sm:h-[250px] xl:h-[450px]">
+          <ImageSlider productsData={productsData} />
+        </section>
         <Order sequence={sequence} setSequence={setSequence} />
-        <section className="flex flex-wrap justify-center gap-4">
+        <section className="px-1 sm:px-2 flex flex-wrap justify-center gap-2 sm:gap-4 xl:gap-7">
           {sortedarray
             .sort((a, b) => {
               return sequence === 'asc'

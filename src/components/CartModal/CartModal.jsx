@@ -29,21 +29,21 @@ const CartModal = ({ isVisible, setCartIsVisible }) => {
   return (
     <div
       ref={modalRef}
-      className={`bg-white shadow-2xl rounded-xl rounded-tr-none absolute top-7 right-5 md:top-8 z-40 ${
+      className={`bg-white shadow-2xl rounded-[7px] rounded-tr-none border border-[#D6D6D6] w-[500px] absolute top-7 right-5 md:top-8 z-40 ${
         isVisible ? 'opacity-100' : 'opacity-0 hidden invisible'
       }`}
     >
       <div className="p-3 pb-1 border-b border-black">
-        <h2 className="text-black font-bold">Seu Carrinho</h2>
+        <h2 className="font-semibold">Seu Carrinho</h2>
       </div>
-      <div className="w-96 h-80 max-h-80 p-3 overflow-auto">
+      <div className="w-full h-[400px] py-3 px-1 overflow-auto">
         <nav>
           {products.map((product) => (
             <CartItem product={product} key={product.id} />
           ))}
         </nav>
       </div>
-      <div className="text-black p-3 bg-white rounded-bl-xl rounded-br-xl border-gray-500 border-t-[1px] flex flex-col relative bottom-0">
+      <div className="text-black p-2 bg-white rounded-bl-xl rounded-br-xl border-gray-500 border-t-[1px] flex flex-col relative bottom-0">
         <h2 className="font-bold text-black">
           Preço Total:
           <span className="text-blue-950 absolute right-4">

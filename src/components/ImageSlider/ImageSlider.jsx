@@ -11,7 +11,7 @@ const ImageSlider = ({ productsData }) => {
   };
 
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full sm:w-4/5 xl:w-[1080px] h-full mx-auto relative">
       <Navigation
         currentIndex={currentIndex}
         setIndex={setIndex}
@@ -21,7 +21,7 @@ const ImageSlider = ({ productsData }) => {
         style={{
           backgroundImage: `url(${productsData[currentIndex].imageUrl})`,
         }}
-        className="w-full h-full bg-cover bg-center"
+        className="w-full h-full bg-cover bg-center bg-no-repeat bg-"
       ></div>
       <div className="flex justify-center absolute bottom-1 left-1/2 translate-x-[-50%]">
         {productsData.map((slide, slideIndex) => (

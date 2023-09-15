@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartModal from '../CartModal/CartModal';
 import { useEffect } from 'react';
+import { BsCart4 } from 'react-icons/bs';
 
 const Header = () => {
   const { products } = useSelector(selectorCartProducts);
@@ -39,7 +40,7 @@ const Header = () => {
   }
 
   return (
-    <header className="grid grid-cols-[0.5fr_2fr_0.5fr] sm:grid-cols-none sm:flex justify-between items-center p-2 sm:pr-5 bg-slate-600 text-white relative">
+    <header className="grid grid-cols-[0.5fr_2fr_0.5fr] sm:grid-cols-none sm:flex justify-between items-center py-[5px] bg-white text-black border-b border-black w-full px-3 sm:px-0 sm:pr-5 fixed z-50">
       <div className="flex">
         <button
           className="relative sm:hidden sm:invisible"
@@ -67,7 +68,7 @@ const Header = () => {
           </div>
         </button>
         {menuIsOpen && (
-          <div className="bg-white w-full absolute top-14 left-0 z-40 sm:hidden sm:invisible">
+          <div className="bg-white w-full absolute top-[39px] left-0 z-50 sm:hidden sm:invisible">
             <nav>
               <ul className="flex flex-col text-center gap-2">
                 <Link
@@ -85,7 +86,10 @@ const Header = () => {
         )}
       </div>
       <Link to="/" className="justify-self-center sm:ml-[12rem] md:ml-60">
-        <h1 className="text-xl md:text-3xl md:py-2 font-bold tracking-wide">
+        <h1
+          style={{ fontFamily: 'Lily Script One' }}
+          className="text-xl xl:text-2xl font-bold tracking-wider"
+        >
           Zaphira
         </h1>
       </Link>
@@ -95,7 +99,7 @@ const Header = () => {
             <Link
               to={'/account/login'}
               className={
-                'text-sm md:text-xl font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none '
+                'text-sm xl:text-lg font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none '
               }
             >
               Entrar
@@ -105,18 +109,18 @@ const Header = () => {
             <Link
               to="/cart"
               className={
-                'text-sm md:text-lg font-bold tracking-normal cursor-pointer rounded hover:text-black hover:bg-white select-none'
+                'text-base xl:text-lg font-bold tracking-normal cursor-pointer rounded hover:text-black hover:bg-white select-none flex items-center gap-1'
               }
             >
-              . ({total})
+              <BsCart4 /> ({total})
             </Link>
           ) : (
             <li
               onClick={handleClickOpenCart}
               className={
                 cartIsVisible
-                  ? 'text-sm md:text-xl text-black font-bold tracking-normal bg-white rounded hover:text-black hover:text-opacity-50 hover:bg-white px-2 cursor-pointer select-none z-50'
-                  : 'text-sm md:text-xl font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none'
+                  ? 'text-sm xl:text-lg text-black font-bold tracking-normal bg-white rounded hover:text-black hover:text-opacity-50 hover:bg-white px-2 cursor-pointer select-none z-50'
+                  : 'text-sm xl:text-lg font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none'
               }
             >
               Carrinho ({total})

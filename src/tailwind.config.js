@@ -2,6 +2,9 @@
 module.exports = {
   content: [],
   theme: {
+    fontFamily: {
+      lily: ['Lily Script One', 'cursive'],
+    },
     extend: {
       keyframes: {
         fadeInDown: {

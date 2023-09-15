@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ai';
 
 const Order = ({ sequence, setSequence }) => {
-  const buttonStyles = `text-lg font-semibold border-2 border-gray-500 rounded-lg bg-gray-300 disabled:bg-gray-500 hover:bg-gray-400 px-3 flex items-center justify-center gap-2`;
+  const buttonStyles = `text-xs xl:text-base font-semibold border-2 border-gray-500 rounded-lg bg-gray-300 disabled:bg-gray-500 hover:bg-gray-400 px-1 flex items-center justify-center gap-1`;
   return (
     <section className="flex justify-end gap-2">
       <CustomButton
