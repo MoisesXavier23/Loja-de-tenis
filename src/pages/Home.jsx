@@ -1,4 +1,4 @@
-import ImageSlider from '../components/ImageSlider/ImageSlider';
+import Image from '../components/Image/Image';
 import Order from '../components/Order/Order';
 import productsData from '../components/Products/data';
 import ProductsCard from '../components/Products/ProductsCard';
@@ -13,9 +13,9 @@ const Home = () => {
   return (
     <>
       <Head title={''} />
-      <main className="py-[40px] xl:py-[78px] flex flex-wrap justify-center gap-7">
-        <section className="w-full h-[180px] sm:h-[250px] xl:h-[450px]">
-          <ImageSlider productsData={productsData} />
+      <main className="py-[40px] xl:py-[78px] flex flex-col items-center justify-center gap-7">
+        <section className="max-w-[1080px] w-full">
+          <Image />
         </section>
         <Order sequence={sequence} setSequence={setSequence} />
         <section className="px-1 sm:px-2 flex flex-wrap justify-center gap-2 sm:gap-4 xl:gap-7">
