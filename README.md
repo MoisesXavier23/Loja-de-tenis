@@ -1,4 +1,4 @@
-# [Zaphira](#)
+# [Loja Zaphira](#)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
@@ -25,7 +25,6 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [ ] Hospedar o site
 - [ ] Criar imagens para o slider
-- [ ] Aprimorar o image slider
 - [ ] Adicionar a api de cep
 - [ ] Adicionar um simulador de frete
 - [ ] Conectar a um banco de dados
