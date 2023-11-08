@@ -13,12 +13,12 @@ const Home = () => {
   return (
     <>
       <Head title={''} />
-      <main className="py-[40px] xl:py-[78px] flex flex-col items-center justify-center gap-7">
+      <main className="bg-gray-100 py-[50px] xl:py-[78px] flex flex-col items-center justify-center gap-5">
         <section className="max-w-[1080px] w-full">
           <Image />
         </section>
         <Order sequence={sequence} setSequence={setSequence} />
-        <section className="px-1 sm:px-2 flex flex-wrap justify-center gap-2 sm:gap-4 xl:gap-7">
+        <section className="px-[2px] sm:px-2 flex flex-wrap justify-center gap-2 sm:gap-4 xl:gap-7">
           {sortedarray
             .sort((a, b) => {
               return sequence === 'asc'

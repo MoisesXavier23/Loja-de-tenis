@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ai';
 
 const Order = ({ sequence, setSequence }) => {
-  const buttonStyles = `text-xs xl:text-base font-semibold border-2 border-gray-500 rounded-lg bg-gray-300 disabled:bg-gray-500 hover:bg-gray-400 px-1 flex items-center justify-center gap-1`;
+  const buttonStyles = `text-xs font-semibold border-2 border-black rounded-lg bg-white disabled:bg-black disabled:text-white hover:bg-black hover:text-white py-1 px-2 pl-[5px] flex items-center justify-center gap-0`;
   return (
     <section className="flex justify-end gap-2">
       <CustomButton
@@ -14,24 +14,24 @@ const Order = ({ sequence, setSequence }) => {
         onClick={() => setSequence('relevant')}
         disabled={sequence === 'relevant' ? 'relevant' : ''}
       >
-        Relevante
         <AiFillStar />
+        Relevante
       </CustomButton>
       <CustomButton
         className={buttonStyles}
         onClick={() => setSequence('asc')}
         disabled={sequence === 'asc' ? 'relevant' : ''}
       >
-        Crescente
         <AiOutlineArrowUp />
+        Crescente
       </CustomButton>
       <CustomButton
         className={buttonStyles}
         onClick={() => setSequence('desc')}
         disabled={sequence === 'desc' ? 'relevant' : ''}
       >
-        Decrescente
         <AiOutlineArrowDown />
+        Decrescente
       </CustomButton>
     </section>
   );

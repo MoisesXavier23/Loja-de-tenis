@@ -43,18 +43,23 @@ const CartItem = ({ product }) => {
           <div className="flex flex-col justify-between relative">
             <h2
               onClick={handleClickProduct}
-              className="font-bold text-[14px] sm:text-[16px] md:text-lg xl:text-[20px] leading-4 cursor-pointer"
+              className="font-bold text-[18px] md:text-lg xl:text-[20px] leading-4 cursor-pointer"
             >
               {product.name}
             </h2>
-            <ul className="hidden invisible sm:block sm:visible text-[12px] list-none leading-4">
+            <ul className="text-[12px] list-none leading-4">
               <li className="">Ref: {product.id}</li>
               <li className="">Vendido e entregue por: Zaphira</li>
-              <li className="">Cor: {product.color.join(', ')}</li>
+              <li className="">
+                Cor:{' '}
+                {Array.isArray(product.color)
+                  ? product.color.join(', ')
+                  : product.color}
+              </li>
             </ul>
             <p
               onClick={handleClickProduct}
-              className="text-[10px] sm:text-[12px] xl:text-[14px] font-semibold cursor-pointer"
+              className="text-[14px] sm:text-[12px] xl:text-[14px] font-semibold cursor-pointer"
             >
               R$ {product.price} por unidade
             </p>
@@ -62,21 +67,18 @@ const CartItem = ({ product }) => {
           <div className="grid grid-rows-[.2fr_1fr] justify-self-end">
             <button
               onClick={handleRemoveItemClick}
-              className="text-xs p-1 bg-red-500 text-white rounded-md cursor-pointer shadow-lg active:bg-opacity-75 justify-self-end"
+              className="text-[16px] p-1 bg-red-500 text-white rounded-md cursor-pointer shadow-lg active:bg-opacity-75 justify-self-end"
             >
               <BsFillTrashFill />
             </button>
             <div className="self-end">
-              <p className="font-bold text-[12px] sm:text-[14px] md:text-[12px] xl:text-[14px] text-end whitespace-nowrap">
+              <p className="font-bold text-[16px] sm:text-[14px] md:text-[12px] xl:text-[14px] text-end whitespace-nowrap">
                 R$: {product.price * product.quantity}
               </p>
-              <div className="flex items-center gap-2 justify-self-end">
-                {/* <p className="hidden invisible sm:block sm:visible sm:text-[12px] text-[#646464]">
-                  Quantidade:
-                </p> */}
+              <div className="flex items-center gap-1 justify-self-end">
                 <div
                   onClick={handleDecreaseItemClick}
-                  className="text-[12px] font-bold cursor-pointer select-none"
+                  className="text-[18px] font-bold cursor-pointer select-none"
                 >
                   -
                 </div>
@@ -85,7 +87,7 @@ const CartItem = ({ product }) => {
                 </div>
                 <div
                   onClick={handleIncreaseItemClick}
-                  className="text-[12px] font-bold cursor-pointer select-none"
+                  className="text-[18px] font-bold cursor-pointer select-none"
                 >
                   +
                 </div>

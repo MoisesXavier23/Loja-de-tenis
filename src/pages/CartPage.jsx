@@ -17,18 +17,12 @@ const CartPage = () => {
   return (
     <>
       {totalProductsItemsInCart > 0 ? (
-        <main className="h-screen px-[10px] pt-[55px] md:pt-[100px] xl:px-[180px] md:grid grid-cols-[2.3fr_1fr] gap-10">
+        <main className="h-max pb-[350px] xl:pb-[200px] px-[10px] pt-[55px] md:pt-[100px] xl:px-[180px] md:grid grid-cols-[2.3fr_1fr] gap-10">
           <Head title={'Carrinho'} />
           <section className="flex flex-col gap-5">
-            {totalProductsItemsInCart ? (
-              products.map((product) => (
-                <CartItem product={product} key={product.id} />
-              ))
-            ) : (
-              <h2 className="text-xl text-center mt-28 opacity-75">
-                Você não possui nenhum item no carrinho
-              </h2>
-            )}
+            {products.map((product) => (
+              <CartItem product={product} key={product.id} />
+            ))}
           </section>
           <section className="h-max flex flex-col md:gap-5 bg-white border-t md:border-none border-[#D6D6D6] fixed bottom-[-1px] left-0 w-full md:relative">
             <div className="text-[14px] md:text-[12px] xl:text-[16px] text-black font-semibold md:border md:shadow-lg md:rounded-[7px] p-[20px] pb-[10px] flex flex-col items-start">
@@ -52,7 +46,6 @@ const CartPage = () => {
                   R$: {totalProductsPrice}
                 </span>
               </p>
-              <div className="w-full h-[1px] bg-[#D6D6D6] mt-[10px] "></div>
             </div>
             <div className="md:p-[10px] xl:p-[20px] md:border md:shadow-lg md:rounded-[7px] flex justify-center">
               <div className="w-full">
@@ -73,6 +66,7 @@ const CartPage = () => {
         </main>
       ) : (
         <main className="h-screen px-[20px] md:px-[50px] pt-[200px] xl:pt-[250px] xl:px-[180px]">
+          <Head title={'Carrinho'} />
           <section className="flex flex-col justify-center">
             <h2 className="text-center text-[16px] md:text-[20px] xl:text-[24px] mb-20 xl:mb-32">
               Você não tem nenhum produto no carrinho, volte para a página

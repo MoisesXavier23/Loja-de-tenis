@@ -11,7 +11,7 @@ const Header = () => {
   const total = products.reduce((sum, item) => sum + item.quantity, 0);
   const [cartIsVisible, setCartIsVisible] = useState(false);
 
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  // const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -40,8 +40,8 @@ const Header = () => {
   }
 
   return (
-    <header className="grid grid-cols-[0.5fr_2fr_0.5fr] sm:grid-cols-none sm:flex justify-between items-center py-[5px] bg-white text-black border-b border-black w-full px-3 sm:px-0 sm:pr-5 fixed z-50">
-      <div className="flex">
+    <header className="w-full flex justify-center items-center py-[5px] bg-white border-b border-black px-3 sm:px-0 sm:pr-5 fixed z-50">
+      {/* <div className="flex">
         <button
           className="relative sm:hidden sm:invisible"
           onClick={() => setMenuIsOpen(!menuIsOpen)}
@@ -84,18 +84,18 @@ const Header = () => {
             </nav>
           </div>
         )}
-      </div>
-      <Link to="/" className="justify-self-center sm:ml-[12rem] md:ml-60">
+      </div> */}
+      <Link to="/" className="">
         <h1
           style={{ fontFamily: 'Lily Script One' }}
-          className="text-xl xl:text-2xl font-bold tracking-wider"
+          className="text-xl xl:text-2xl font-bold text-center tracking-wider"
         >
           Zaphira
         </h1>
       </Link>
       <nav>
-        <ul className="flex justify-end sm:gap-5">
-          <li className="invisible hidden sm:flex sm:visible">
+        <ul className="">
+          {/* <li className="invisible hidden sm:flex sm:visible">
             <Link
               to={'/account/login'}
               className={
@@ -104,12 +104,12 @@ const Header = () => {
             >
               Entrar
             </Link>
-          </li>
+          </li> */}
           {windowSize.innerWidth <= 640 ? (
             <Link
               to="/cart"
               className={
-                'text-base xl:text-lg font-bold tracking-normal cursor-pointer rounded hover:text-black hover:bg-white select-none flex items-center gap-1'
+                'text-base xl:text-lg font-bold tracking-normal cursor-pointer rounded hover:text-black hover:bg-white select-none flex justify-center items-center gap-1 absolute top-[.35rem] right-2'
               }
             >
               <BsCart4 /> ({total})
@@ -119,8 +119,8 @@ const Header = () => {
               onClick={handleClickOpenCart}
               className={
                 cartIsVisible
-                  ? 'text-sm xl:text-lg text-black font-bold tracking-normal bg-white rounded hover:text-black hover:text-opacity-50 hover:bg-white px-2 cursor-pointer select-none z-50'
-                  : 'text-sm xl:text-lg font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none'
+                  ? 'text-sm xl:text-lg text-black font-bold tracking-normal bg-white rounded hover:text-black hover:text-opacity-50 hover:bg-white px-2 cursor-pointer select-none z-50 absolute top-[.3rem] right-5'
+                  : 'text-sm xl:text-lg font-bold px-2 tracking-normal cursor-pointer rounded hover:text-black hover:bg-white active:bg-opacity-75 select-none absolute top-[.3rem] right-5'
               }
             >
               Carrinho ({total})

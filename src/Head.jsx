@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 const Head = ({ title }) => {
   useEffect(() => {
     if (title) {
-      document.title = 'Tênis | ' + title;
+      document.title = 'Zaphira | ' + title;
     } else {
-      document.title = 'Tênis';
+      document.title = 'Zaphira';
     }
   }, [title]);
 
